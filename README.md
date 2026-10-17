@@ -6,6 +6,7 @@
 *Crafted for creating viral Instagram Reels, TikToks, and heartwarming personal surprises.*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-pink.svg?style=for-the-badge)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/Demo-Live_on_Vercel-success?style=for-the-badge&logo=vercel)](https://apology-card-seven.vercel.app)
 [![Vanilla JS](https://img.shields.io/badge/Vanilla_JS-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](script.js)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](index.html)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](style.css)
@@ -13,7 +14,7 @@
 
 <br />
 
-[Explore Features](#-features) • [State Flow](#-interactive-flow-diagram) • [Quick Start](#-getting-started) • [Customization](#-customization-guide) • [Author](#-author)
+[🌐 **Live Demo**](https://apology-card-seven.vercel.app) • [Explore Features](#-features) • [State Flow](#-interactive-flow-diagram) • [Quick Start](#-getting-started) • [Customization](#-customization-guide) • [Author](#-author)
 
 </div>
 
