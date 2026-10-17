@@ -1,0 +1,313 @@
+<!-- Author: saklincodes -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="saklincodes">
+  <meta name="description" content="A playful, interactive, and beautifully animated romantic apology web application.">
+  <meta property="og:title" content="I'm Really Sorry 🥺💌 - Interactive Apology Card">
+  <meta property="og:description" content="A playful, interactive, and beautifully animated romantic apology web application.">
+  <meta property="og:type" content="website">
+  <title>I'm Really Sorry 🥺💌</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💌</text></svg>">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- SCREEN 1 DECOR: Lavender & Branches -->
+  <div id="decor-screen-1">
+    <div class="top-garland" aria-hidden="true">
+      <span>✨</span><span>☁️</span><span>🤍</span><span>✨</span><span>🕊️</span><span>☁️</span><span>✨</span>
+    </div>
+    <div class="sticker sticker-top-left" aria-hidden="true">🥺 I'm truly sorry!</div>
+    <div class="sticker sticker-top-right" aria-hidden="true">💌 An apology for you</div>
+    <div class="sticker sticker-bottom-left" aria-hidden="true">🤞 Promise, never again</div>
+    <div class="sticker sticker-bottom-right" aria-hidden="true">🩹 Sending warm hugs</div>
+
+    <div class="foliage-cluster cluster-left" aria-hidden="true">
+      <svg class="branch branch-1" viewBox="0 0 100 240" fill="none">
+        <path d="M20,230 Q40,140 25,20" stroke="#7e6f99" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="36" cy="40" rx="16" ry="8" transform="rotate(-30 36 40)" fill="#9d8bbd"/>
+        <ellipse cx="14" cy="75" rx="15" ry="7" transform="rotate(25 14 75)" fill="#bbaed6"/>
+        <ellipse cx="42" cy="110" rx="17" ry="8" transform="rotate(-35 42 110)" fill="#8e7baa"/>
+        <ellipse cx="18" cy="145" rx="15" ry="7" transform="rotate(30 18 145)" fill="#b1a2cd"/>
+        <ellipse cx="40" cy="180" rx="16" ry="8" transform="rotate(-25 40 180)" fill="#9d8bbd"/>
+      </svg>
+      <svg class="branch branch-2" viewBox="0 0 90 200" fill="none">
+        <path d="M10,195 Q35,110 30,25" stroke="#9384ad" stroke-width="2.5" stroke-linecap="round"/>
+        <ellipse cx="38" cy="45" rx="14" ry="7" transform="rotate(-25 38 45)" fill="#b8a7d3"/>
+        <ellipse cx="18" cy="80" rx="13" ry="6" transform="rotate(20 18 80)" fill="#cfc2e7"/>
+        <ellipse cx="40" cy="115" rx="15" ry="7" transform="rotate(-30 40 115)" fill="#aba0c6"/>
+        <ellipse cx="22" cy="150" rx="14" ry="6" transform="rotate(25 22 150)" fill="#bfb2d8"/>
+      </svg>
+    </div>
+
+    <div class="foliage-cluster cluster-right" aria-hidden="true">
+      <svg class="branch branch-1" viewBox="0 0 100 240" fill="none">
+        <path d="M80,230 Q60,140 75,20" stroke="#7e6f99" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="64" cy="40" rx="16" ry="8" transform="rotate(30 64 40)" fill="#9d8bbd"/>
+        <ellipse cx="86" cy="75" rx="15" ry="7" transform="rotate(-25 86 75)" fill="#bbaed6"/>
+        <ellipse cx="58" cy="110" rx="17" ry="8" transform="rotate(35 58 110)" fill="#8e7baa"/>
+        <ellipse cx="82" cy="145" rx="15" ry="7" transform="rotate(-30 82 145)" fill="#b1a2cd"/>
+        <ellipse cx="60" cy="180" rx="16" ry="8" transform="rotate(25 60 180)" fill="#9d8bbd"/>
+      </svg>
+      <svg class="branch branch-2" viewBox="0 0 90 200" fill="none">
+        <path d="M80,195 Q55,110 60,25" stroke="#9384ad" stroke-width="2.5" stroke-linecap="round"/>
+        <ellipse cx="52" cy="45" rx="14" ry="7" transform="rotate(25 52 45)" fill="#b8a7d3"/>
+        <ellipse cx="72" cy="80" rx="13" ry="6" transform="rotate(-20 72 80)" fill="#cfc2e7"/>
+        <ellipse cx="50" cy="115" rx="15" ry="7" transform="rotate(30 50 115)" fill="#aba0c6"/>
+        <ellipse cx="68" cy="150" rx="14" ry="6" transform="rotate(-25 68 150)" fill="#bfb2d8"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- SCREEN 2 DECOR: Corner Rose Bouquets -->
+  <div id="decor-screen-2" class="hidden" aria-hidden="true">
+    <svg class="screen2-corner corner-tl" viewBox="0 0 180 180" fill="none">
+      <path d="M0,0 C60,20 120,60 140,140 C100,100 60,60 0,0 Z" fill="rgba(242, 132, 158, 0.18)"/>
+      <ellipse cx="50" cy="50" rx="26" ry="22" transform="rotate(-20 50 50)" fill="#f4a3b7"/>
+      <ellipse cx="90" cy="45" rx="20" ry="16" transform="rotate(25 90 45)" fill="#f2849e"/>
+      <ellipse cx="45" cy="90" rx="22" ry="18" transform="rotate(-35 45 90)" fill="#ff758f"/>
+      <circle cx="95" cy="85" r="14" fill="#fbb1bd"/>
+      <circle cx="75" cy="115" r="12" fill="#f4a3b7"/>
+    </svg>
+    <svg class="screen2-corner corner-tr" viewBox="0 0 180 180" fill="none">
+      <path d="M180,0 C120,20 60,60 40,140 C80,100 120,60 180,0 Z" fill="rgba(242, 132, 158, 0.18)"/>
+      <ellipse cx="130" cy="50" rx="26" ry="22" transform="rotate(20 130 50)" fill="#f4a3b7"/>
+      <ellipse cx="90" cy="45" rx="20" ry="16" transform="rotate(-25 90 45)" fill="#f2849e"/>
+      <ellipse cx="135" cy="90" rx="22" ry="18" transform="rotate(35 135 90)" fill="#ff758f"/>
+      <circle cx="85" cy="85" r="14" fill="#fbb1bd"/>
+      <circle cx="105" cy="115" r="12" fill="#f4a3b7"/>
+    </svg>
+    <svg class="screen2-corner corner-bl" viewBox="0 0 180 180" fill="none">
+      <path d="M0,180 C60,160 120,120 140,40 C100,80 60,120 0,180 Z" fill="rgba(242, 132, 158, 0.15)"/>
+      <ellipse cx="50" cy="130" rx="26" ry="20" transform="rotate(25 50 130)" fill="#f4a3b7"/>
+      <ellipse cx="90" cy="135" rx="18" ry="14" transform="rotate(-20 90 135)" fill="#f2849e"/>
+      <ellipse cx="45" cy="90" rx="20" ry="16" transform="rotate(30 45 90)" fill="#ff758f"/>
+      <circle cx="95" cy="95" r="13" fill="#fbb1bd"/>
+    </svg>
+    <svg class="screen2-corner corner-br" viewBox="0 0 180 180" fill="none">
+      <path d="M180,180 C120,160 60,120 40,40 C80,80 120,120 180,180 Z" fill="rgba(242, 132, 158, 0.15)"/>
+      <ellipse cx="130" cy="130" rx="26" ry="20" transform="rotate(-25 130 130)" fill="#f4a3b7"/>
+      <ellipse cx="90" cy="135" rx="18" ry="14" transform="rotate(20 90 135)" fill="#f2849e"/>
+      <ellipse cx="135" cy="90" rx="20" ry="16" transform="rotate(-30 135 90)" fill="#ff758f"/>
+      <circle cx="85" cy="95" r="13" fill="#fbb1bd"/>
+    </svg>
+    <span class="float-item" style="--x: 15%; --dur: 8s; --delay: 0s;">🌸</span>
+    <span class="float-item" style="--x: 50%; --dur: 7s; --delay: 2s;">💖</span>
+    <span class="float-item" style="--x: 85%; --dur: 9s; --delay: 1s;">🌸</span>
+  </div>
+
+  <!-- SCREEN 3 DECOR: Joyful Celebration Confetti & Floating Helium Balloon Clusters -->
+  <div id="decor-screen-3" class="hidden" aria-hidden="true">
+    <div class="top-garland celebration-garland" aria-hidden="true">
+      <span>🎉</span><span>💖</span><span>✨</span><span>🥳</span><span>✨</span><span>💖</span><span>🎉</span>
+    </div>
+
+    <!-- Top Festive Pennant Bunting -->
+    <svg class="celebration-bunting" viewBox="0 0 1000 80" preserveAspectRatio="none" fill="none">
+      <path d="M0,15 Q250,50 500,18 Q750,50 1000,15" stroke="#d4a373" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+      <polygon points="50,17 90,23 70,65" fill="#ff758f"/>
+      <polygon points="135,28 175,34 155,76" fill="#f4a261"/>
+      <polygon points="220,38 260,42 240,84" fill="#e76f51"/>
+      <polygon points="305,41 345,37 325,82" fill="#ff4d6d"/>
+      <polygon points="390,32 430,26 410,72" fill="#f4a261"/>
+      <polygon points="475,20 515,18 495,64" fill="#ff758f"/>
+      <polygon points="560,22 600,28 580,72" fill="#e76f51"/>
+      <polygon points="645,35 685,41 665,84" fill="#f4a261"/>
+      <polygon points="730,42 770,39 750,83" fill="#ff4d6d"/>
+      <polygon points="815,33 855,27 835,74" fill="#ff758f"/>
+      <polygon points="900,22 940,16 920,62" fill="#f4a261"/>
+    </svg>
+
+    <!-- Left Heart Balloon Cluster -->
+    <div class="balloon-cluster balloon-left" aria-hidden="true">
+      <svg viewBox="0 0 120 260" fill="none">
+        <path d="M45,95 Q65,180 60,250" stroke="#d4a373" stroke-width="1.8" stroke-dasharray="3 3"/>
+        <path d="M75,110 Q55,185 60,250" stroke="#d4a373" stroke-width="1.8" stroke-dasharray="3 3"/>
+        <path d="M60,75 Q60,170 60,250" stroke="#d4a373" stroke-width="1.8"/>
+        <circle cx="60" cy="250" r="4" fill="#e76f51"/>
+        <!-- Balloon 1: Pink Heart -->
+        <g filter="drop-shadow(0 6px 12px rgba(255,117,143,0.3))">
+          <path d="M60,85 C25,55 12,25 38,12 C52,4 58,18 60,24 C62,18 68,4 82,12 C108,25 95,55 60,85 Z" fill="#ff758f"/>
+          <ellipse cx="48" cy="24" rx="7" ry="3.5" transform="rotate(-30 48 24)" fill="rgba(255,255,255,0.6)"/>
+        </g>
+        <!-- Balloon 2: Coral Oval -->
+        <g filter="drop-shadow(0 6px 12px rgba(231,111,81,0.25))">
+          <ellipse cx="40" cy="105" rx="26" ry="32" transform="rotate(-15 40 105)" fill="#e76f51"/>
+          <ellipse cx="46" cy="92" rx="6" ry="3" transform="rotate(15 46 92)" fill="rgba(255,255,255,0.6)"/>
+        </g>
+        <!-- Balloon 3: Golden Starry Balloon -->
+        <g filter="drop-shadow(0 6px 12px rgba(244,162,97,0.25))">
+          <ellipse cx="82" cy="115" rx="24" ry="30" transform="rotate(15 82 115)" fill="#f4a261"/>
+          <ellipse cx="76" cy="102" rx="6" ry="3" transform="rotate(-15 76 102)" fill="rgba(255,255,255,0.6)"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Right Heart Balloon Cluster -->
+    <div class="balloon-cluster balloon-right" aria-hidden="true">
+      <svg viewBox="0 0 120 260" fill="none">
+        <path d="M45,110 Q65,185 60,250" stroke="#d4a373" stroke-width="1.8" stroke-dasharray="3 3"/>
+        <path d="M75,95 Q55,180 60,250" stroke="#d4a373" stroke-width="1.8" stroke-dasharray="3 3"/>
+        <path d="M60,75 Q60,170 60,250" stroke="#d4a373" stroke-width="1.8"/>
+        <circle cx="60" cy="250" r="4" fill="#e63946"/>
+        <!-- Balloon 1: Coral Red Heart -->
+        <g filter="drop-shadow(0 6px 12px rgba(230,57,70,0.3))">
+          <path d="M60,85 C25,55 12,25 38,12 C52,4 58,18 60,24 C62,18 68,4 82,12 C108,25 95,55 60,85 Z" fill="#e63946"/>
+          <ellipse cx="48" cy="24" rx="7" ry="3.5" transform="rotate(-30 48 24)" fill="rgba(255,255,255,0.6)"/>
+        </g>
+        <!-- Balloon 2: Golden Warm -->
+        <g filter="drop-shadow(0 6px 12px rgba(244,162,97,0.25))">
+          <ellipse cx="80" cy="105" rx="26" ry="32" transform="rotate(15 80 105)" fill="#f4a261"/>
+          <ellipse cx="74" cy="92" rx="6" ry="3" transform="rotate(-15 74 92)" fill="rgba(255,255,255,0.6)"/>
+        </g>
+        <!-- Balloon 3: Rose Pink -->
+        <g filter="drop-shadow(0 6px 12px rgba(255,117,143,0.25))">
+          <ellipse cx="38" cy="115" rx="24" ry="30" transform="rotate(-15 38 115)" fill="#ff758f"/>
+          <ellipse cx="46" cy="102" rx="6" ry="3" transform="rotate(15 46 102)" fill="rgba(255,255,255,0.6)"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Confetti Streamers Falling Across Screen -->
+    <span class="confetti-piece" style="--x: 8%; --dur: 4.5s; --delay: 0s;">🎊</span>
+    <span class="confetti-piece" style="--x: 20%; --dur: 5.2s; --delay: 1.2s;">✨</span>
+    <span class="confetti-piece" style="--x: 35%; --dur: 4.8s; --delay: 0.5s;">💖</span>
+    <span class="confetti-piece" style="--x: 50%; --dur: 5.5s; --delay: 1.8s;">🎉</span>
+    <span class="confetti-piece" style="--x: 65%; --dur: 4.2s; --delay: 0.8s;">🥳</span>
+    <span class="confetti-piece" style="--x: 80%; --dur: 5.0s; --delay: 1.5s;">✨</span>
+    <span class="confetti-piece" style="--x: 92%; --dur: 4.6s; --delay: 0.2s;">💖</span>
+
+    <!-- Interactive Love Rain Container -->
+    <div id="love-rain" class="love-rain-container" aria-hidden="true"></div>
+  </div>
+
+  <!-- SCREEN SAD DECOR: Fluffy Rain Clouds & Gentle Teardrop Shower -->
+  <div id="decor-screen-sad" class="hidden" aria-hidden="true">
+    <!-- Left Sad Rain Cloud -->
+    <svg class="sad-cloud cloud-left" viewBox="0 0 160 90" fill="none">
+      <path d="M30,70 Q10,70 10,50 Q10,32 30,30 Q35,10 65,10 Q90,10 100,25 Q115,15 135,30 Q150,42 150,60 Q150,70 130,70 Z" fill="#b8cce6" opacity="0.85"/>
+      <ellipse cx="65" cy="40" rx="35" ry="25" fill="#d2e1f5"/>
+      <path d="M40,74 Q40,86 37,86 Q34,86 34,74 Z" fill="#6d94c7"/>
+      <path d="M70,76 Q70,90 67,90 Q64,90 64,76 Z" fill="#6d94c7"/>
+      <path d="M100,74 Q100,86 97,86 Q94,86 94,74 Z" fill="#6d94c7"/>
+      <path d="M125,76 Q125,88 122,88 Q119,88 119,76 Z" fill="#6d94c7"/>
+    </svg>
+
+    <!-- Right Sad Rain Cloud -->
+    <svg class="sad-cloud cloud-right" viewBox="0 0 160 90" fill="none">
+      <path d="M30,70 Q10,70 10,50 Q10,32 30,30 Q35,10 65,10 Q90,10 100,25 Q115,15 135,30 Q150,42 150,60 Q150,70 130,70 Z" fill="#b8cce6" opacity="0.85"/>
+      <ellipse cx="65" cy="40" rx="35" ry="25" fill="#d2e1f5"/>
+      <path d="M40,76 Q40,90 37,90 Q34,90 34,76 Z" fill="#6d94c7"/>
+      <path d="M75,74 Q75,86 72,86 Q69,86 69,74 Z" fill="#6d94c7"/>
+      <path d="M105,76 Q105,90 102,90 Q99,90 99,76 Z" fill="#6d94c7"/>
+      <path d="M130,74 Q130,86 127,86 Q124,86 124,74 Z" fill="#6d94c7"/>
+    </svg>
+
+    <!-- Falling Raindrop Elements -->
+    <span class="rain-item" style="--x: 12%; --dur: 3.2s; --delay: 0s;">💧</span>
+    <span class="rain-item" style="--x: 28%; --dur: 3.8s; --delay: 1.2s;">💧</span>
+    <span class="rain-item" style="--x: 48%; --dur: 3.0s; --delay: 0.5s;">🌧️</span>
+    <span class="rain-item" style="--x: 72%; --dur: 3.6s; --delay: 1.6s;">💧</span>
+    <span class="rain-item" style="--x: 88%; --dur: 3.4s; --delay: 0.8s;">💧</span>
+  </div>
+
+  <!-- SCREEN SUPER SAD DECOR: Weeping Moon & Floating Heart Bandages -->
+  <div id="decor-screen-super-sad" class="hidden" aria-hidden="true">
+    <svg class="super-sad-moon" viewBox="0 0 100 100" fill="none">
+      <path d="M60,15 C40,15 25,32 25,55 C25,78 42,95 65,95 C75,95 82,90 88,85 C65,82 50,68 50,50 C50,32 62,20 82,18 C75,15 68,15 60,15 Z" fill="#d0bfe6" opacity="0.8"/>
+      <path d="M42,55 Q42,66 39,66 Q36,66 36,55 Z" fill="#9e85c7"/>
+    </svg>
+    <span class="weep-item" style="--x: 10%; --dur: 4.0s; --delay: 0s;">❤️‍🩹</span>
+    <span class="weep-item" style="--x: 24%; --dur: 4.8s; --delay: 1.5s;">🩹</span>
+    <span class="weep-item" style="--x: 44%; --dur: 3.8s; --delay: 0.5s;">🥺</span>
+    <span class="weep-item" style="--x: 68%; --dur: 4.5s; --delay: 2.0s;">❤️‍🩹</span>
+    <span class="weep-item" style="--x: 86%; --dur: 4.2s; --delay: 1.0s;">🩹</span>
+  </div>
+
+  <!-- SCREEN 1 -->
+  <main id="screen-1" class="screen canvas active">
+    <div class="heart-frame">
+      <svg class="heart-outline" viewBox="0 0 300 280">
+        <path d="M150,260 C20,160 10,60 75,25 C120,5 145,45 150,60 C155,45 180,5 225,25 C290,60 280,160 150,260 Z" />
+      </svg>
+      <img src="gifs/pleading.gif" alt="Pleading bear" class="pleading-gif">
+    </div>
+    <h1 class="title-screen-1">Are you still mad at me?</h1>
+    <p class="apology-sub sub-screen-1">I'm really really sorry... Please forgive me? <span class="plead-emoji">🥺</span></p>
+    <div class="btn-group btn-group-1">
+      <button id="btn-no" class="btn btn-primary">No, I forgive you 💜</button>
+      <button id="btn-yes" class="btn btn-secondary">Yes 😤</button>
+    </div>
+  </main>
+
+  <!-- SCREEN 2 -->
+  <main id="screen-2" class="screen canvas hidden">
+    <div class="heart-frame heart-frame-corgi">
+      <svg class="heart-outline heart-outline-corgi" viewBox="0 0 300 280">
+        <path d="M150,260 C20,160 10,60 75,25 C120,5 145,45 150,60 C155,45 180,5 225,25 C290,60 280,160 150,260 Z" />
+      </svg>
+      <img src="gifs/corgi.gif" alt="Pleading corgi puppy" class="corgi-gif">
+    </div>
+    <h1 class="title-screen-2">Are you really sure?</h1>
+    <p class="apology-sub sub-screen-2">Do you truly forgive me from your heart? I promise I will never make you sad again... 🥺💕</p>
+    <div class="btn-group btn-group-2">
+      <button id="btn-forgive-final" class="btn btn-romantic">Yes, I truly forgive you ❤️</button>
+      <button id="btn-idk" class="btn btn-secondary">I don't know yet... 🤔</button>
+    </div>
+  </main>
+
+  <!-- SCREEN SAD: Crying Pleading Screen -->
+  <main id="screen-sad" class="screen canvas hidden">
+    <div class="heart-frame heart-frame-sad">
+      <svg class="heart-outline heart-outline-sad" viewBox="0 0 300 280">
+        <path d="M150,260 C20,160 10,60 75,25 C120,5 145,45 150,60 C155,45 180,5 225,25 C290,60 280,160 150,260 Z" />
+      </svg>
+      <img src="gifs/crying.gif" alt="Crying character" class="crying-gif">
+    </div>
+    <h1 class="title-screen-sad">Please Don't Stay Mad... 😭💔</h1>
+    <p class="apology-sub sub-screen-sad">Seeing you upset breaks my whole heart into pieces... I am so deeply sorry! Please forgive me, I can't bear seeing you sad... 🥺💧</p>
+    <div class="btn-group btn-group-sad">
+      <button id="btn-sad-forgive" class="btn btn-sad-forgive">Okay, I forgive you 🥺💖</button>
+      <button id="btn-sad-mad" class="btn btn-secondary">Still mad! 😤</button>
+    </div>
+  </main>
+
+  <!-- SCREEN SUPER SAD: Ppuyo Bawling Kneeling Screen -->
+  <main id="screen-super-sad" class="screen canvas hidden">
+    <div class="heart-frame heart-frame-super-sad">
+      <svg class="heart-outline heart-outline-super-sad" viewBox="0 0 300 280">
+        <path d="M150,260 C20,160 10,60 75,25 C120,5 145,45 150,60 C155,45 180,5 225,25 C290,60 280,160 150,260 Z" />
+      </svg>
+      <img src="gifs/zookiz.gif" alt="Bawling cute character" class="zookiz-gif">
+    </div>
+    <h1 class="title-screen-super-sad">I'm 10000% Sorry, Please! 😭💔</h1>
+    <p class="apology-sub sub-screen-super-sad">I am literally on my knees begging for your forgiveness... I can't bear you being upset with me for even one second! I promise on my life to never make this mistake again. Please forgive your dummy? 🥺🙏❤️‍🩹</p>
+    <div class="btn-group btn-group-super">
+      <button id="btn-super-forgive" class="btn btn-super-forgive">Okay, I forgive you! Don't cry 🥺❤️</button>
+      <button id="btn-super-mad" class="btn btn-secondary">Still no! 😤</button>
+    </div>
+  </main>
+
+  <!-- SCREEN 3 -->
+  <main id="screen-3" class="screen canvas hidden">
+    <div class="heart-frame heart-frame-celebration">
+      <svg class="heart-outline heart-outline-celebration" viewBox="0 0 300 280">
+        <path d="M150,260 C20,160 10,60 75,25 C120,5 145,45 150,60 C155,45 180,5 225,25 C290,60 280,160 150,260 Z" />
+      </svg>
+      <img src="gifs/corgi-love.gif" alt="Happy corgi hugging and kissing" class="corgi-love-gif">
+    </div>
+    <h1 class="title-screen-3">Thank You for Forgiving Me ❤️</h1>
+    <p class="apology-sub sub-screen-3">You mean the absolute world to me. My heart only finds peace when you smile... I promise to cherish you, protect your happiness, and love you endlessly forever and always. 🥺💑✨</p>
+    <div class="btn-group btn-group-3">
+      <button id="btn-infinite-love" class="btn btn-infinite">Love You to Infinity ∞ 💖</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

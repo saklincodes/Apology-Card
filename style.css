@@ -1,0 +1,793 @@
+/*
+ * Project: Apology Card
+ * Author: saklincodes
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: radial-gradient(circle at center, #f7f6fc 0%, #eae6f5 55%, #ded8ee 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  color: #2e2540;
+  transition: background 0.8s ease;
+}
+
+body.screen-2-mode {
+  background: radial-gradient(circle at center, #fff6f8 0%, #fbe8ee 55%, #ecd4de 100%);
+}
+
+body.screen-3-mode {
+  background: radial-gradient(circle at center, #fff9f2 0%, #fef1e0 50%, #fde4cb 100%);
+}
+
+body.screen-sad-mode {
+  background: radial-gradient(circle at center, #edf3fb 0%, #d8e5f5 55%, #c5d8f0 100%);
+}
+
+body.screen-super-sad-mode {
+  background: radial-gradient(circle at center, #f2ecf9 0%, #ded3ee 55%, #cbbbe3 100%);
+}
+
+.hidden { display: none !important; }
+
+#decor-screen-1,
+#decor-screen-2,
+#decor-screen-3,
+#decor-screen-sad,
+#decor-screen-super-sad {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* ==================== SCREEN 1 DECOR ==================== */
+.top-garland {
+  position: absolute;
+  top: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.1rem;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.foliage-cluster {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0.88;
+  animation: sway 5s ease-in-out infinite alternate;
+}
+
+.cluster-left { left: 15%; }
+.cluster-right { right: 15%; animation-delay: 1s; }
+.branch { height: 230px; filter: drop-shadow(0 4px 10px rgba(110, 85, 140, 0.12)); }
+.branch-2 { margin-left: -32px; transform: scale(0.92); }
+.cluster-right .branch-2 { margin: 0 -32px 0 0; }
+
+@keyframes sway {
+  0% { transform: translateY(-50%) rotate(0deg); }
+  100% { transform: translateY(-52%) rotate(3deg); }
+}
+
+.sticker {
+  position: absolute;
+  background: #fff;
+  padding: 0.5rem 0.95rem;
+  border-radius: 14px;
+  font-family: 'Caveat', cursive;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #4f3e67;
+  box-shadow: 0 8px 20px rgba(90, 70, 120, 0.1);
+  border: 1.5px dashed #c8bede;
+  pointer-events: none;
+  animation: stickerWiggle 4s ease-in-out infinite alternate;
+}
+
+.sticker-top-left { top: 16%; left: 15%; transform: rotate(-6deg); }
+.sticker-top-right { top: 18%; right: 15%; transform: rotate(6deg); animation-delay: 1s; }
+.sticker-bottom-left { bottom: 16%; left: 16%; transform: rotate(4deg); animation-delay: 2s; }
+.sticker-bottom-right { bottom: 18%; right: 16%; transform: rotate(-5deg); animation-delay: 1.5s; }
+
+@keyframes stickerWiggle {
+  0% { transform: translateY(0) rotate(-4deg); }
+  100% { transform: translateY(-8px) rotate(4deg); }
+}
+
+/* ==================== SCREEN 2 DECOR ==================== */
+.screen2-corner {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 12px rgba(220, 100, 130, 0.15));
+  animation: cornerBreathe 4s ease-in-out infinite alternate;
+}
+
+.corner-tl { top: 0; left: 0; }
+.corner-tr { top: 0; right: 0; animation-delay: 1s; }
+.corner-bl { bottom: 0; left: 0; animation-delay: 2s; }
+.corner-br { bottom: 0; right: 0; animation-delay: 1.5s; }
+
+@keyframes cornerBreathe {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+/* ==================== SCREEN 3 DECOR ==================== */
+.celebration-bunting {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  pointer-events: none;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.08));
+}
+
+.balloon-cluster {
+  position: absolute;
+  top: 48%;
+  transform: translateY(-50%);
+  width: 135px;
+  height: 270px;
+  pointer-events: none;
+  animation: balloonBob 4.2s ease-in-out infinite alternate;
+}
+
+.balloon-left {
+  left: 14%;
+}
+
+.balloon-right {
+  right: 14%;
+  animation-delay: 1.2s;
+}
+
+.balloon-cluster svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes balloonBob {
+  0% { transform: translateY(-50%) rotate(0deg); }
+  50% { transform: translateY(-54%) rotate(3deg); }
+  100% { transform: translateY(-48%) rotate(-2deg); }
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -50px;
+  left: var(--x);
+  font-size: 1.6rem;
+  pointer-events: none;
+  animation: confettiFall var(--dur) linear infinite var(--delay);
+}
+
+@keyframes confettiFall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(115vh) rotate(360deg); opacity: 0; }
+}
+
+/* Love Rain Interactive Shower */
+.love-rain-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.love-drop {
+  position: absolute;
+  top: -30px;
+  left: var(--x);
+  font-family: 'Caveat', cursive;
+  font-size: var(--sz, 1.05rem);
+  font-weight: 700;
+  color: var(--col, #e63963);
+  text-shadow: 0 2px 8px rgba(255, 117, 143, 0.45);
+  pointer-events: none;
+  white-space: nowrap;
+  animation: loveRainFall var(--dur, 3.2s) linear forwards;
+}
+
+@keyframes loveRainFall {
+  0% { transform: translateY(0) rotate(var(--rot, 0deg)) scale(var(--s, 1)); opacity: 0; }
+  15% { opacity: 0.95; }
+  85% { opacity: 0.95; }
+  100% { transform: translateY(115vh) rotate(calc(var(--rot, 0deg) + 20deg)) scale(var(--s, 1)); opacity: 0; }
+}
+
+/* ==================== SCREEN SAD DECOR ==================== */
+.sad-cloud {
+  position: absolute;
+  width: 150px;
+  height: 85px;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 12px rgba(100, 140, 190, 0.2));
+  animation: cloudDrift 5s ease-in-out infinite alternate;
+}
+
+.cloud-left {
+  top: 18px;
+  left: 12%;
+}
+
+.cloud-right {
+  top: 25px;
+  right: 12%;
+  animation-delay: 1.5s;
+}
+
+@keyframes cloudDrift {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(8px) scale(1.04); }
+}
+
+.rain-item {
+  position: absolute;
+  top: -40px;
+  left: var(--x);
+  font-size: 1.3rem;
+  pointer-events: none;
+  opacity: 0.75;
+  animation: rainDropFall var(--dur) linear infinite var(--delay);
+}
+
+@keyframes rainDropFall {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 0.85; }
+  85% { opacity: 0.85; }
+  100% { transform: translateY(112vh); opacity: 0; }
+}
+
+/* ==================== SCREEN SUPER SAD DECOR ==================== */
+.super-sad-moon {
+  position: absolute;
+  top: 20px;
+  right: 14%;
+  width: 90px;
+  height: 90px;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 14px rgba(140, 105, 180, 0.25));
+  animation: moonGaze 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes moonGaze {
+  0% { transform: translateY(0) rotate(-4deg); }
+  100% { transform: translateY(6px) rotate(4deg); }
+}
+
+.weep-item {
+  position: absolute;
+  top: -40px;
+  left: var(--x);
+  font-size: 1.35rem;
+  pointer-events: none;
+  opacity: 0.8;
+  animation: weepFall var(--dur) linear infinite var(--delay);
+}
+
+@keyframes weepFall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  15% { opacity: 0.85; }
+  85% { opacity: 0.85; }
+  100% { transform: translateY(112vh) rotate(25deg); opacity: 0; }
+}
+
+/* Floating Elements (General) */
+.float-item {
+  position: absolute;
+  bottom: -40px;
+  left: var(--x);
+  font-size: 1.35rem;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: floatUp var(--dur) ease-in-out infinite var(--delay);
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0; }
+  20%, 80% { opacity: 0.75; }
+  100% { transform: translateY(-110vh) rotate(20deg); opacity: 0; }
+}
+
+/* ==================== MAIN CANVAS ==================== */
+.canvas {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 540px;
+  text-align: center;
+}
+
+.screen.active {
+  animation: popIn 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Heart Frames */
+.heart-frame {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 330px;
+  height: 300px;
+  margin-bottom: 0.8rem;
+  animation: popIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.heart-frame-corgi {
+  animation: corgiDropIn 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.heart-frame-celebration {
+  animation: starburstPop 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.heart-outline {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.heart-outline path {
+  fill: rgba(245, 240, 252, 0.6);
+  stroke: #b5a5cf;
+  stroke-width: 2.5;
+  stroke-dasharray: 7 6;
+  stroke-linecap: round;
+}
+
+.heart-outline-corgi path {
+  fill: rgba(255, 238, 243, 0.65);
+  stroke: #d99aa9;
+}
+
+.heart-outline-celebration path {
+  fill: rgba(255, 242, 225, 0.7);
+  stroke: #f4a261;
+}
+
+.heart-outline-sad path {
+  fill: rgba(235, 242, 252, 0.7);
+  stroke: #8faed4;
+}
+
+.heart-outline-super-sad path {
+  fill: rgba(240, 230, 252, 0.75);
+  stroke: #a890cf;
+}
+
+.heart-frame-sad {
+  animation: raindropSway 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.heart-frame-super-sad {
+  animation: kneeDropImpact 0.95s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes raindropSway {
+  0% { opacity: 0; transform: translateY(-35px) scale(0.8); }
+  70% { transform: translateY(4px) scale(1.03); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes kneeDropImpact {
+  0% { opacity: 0; transform: translateY(-50px) scale(0.7); }
+  60% { transform: translateY(8px) scale(1.05); }
+  80% { transform: translateY(-3px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.pleading-gif, .corgi-gif, .corgi-love-gif, .crying-gif, .zookiz-gif {
+  position: relative;
+  z-index: 2;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(95, 75, 125, 0.12);
+}
+
+.pleading-gif { width: 180px; max-width: 75%; }
+.corgi-gif { width: 195px; max-width: 80%; }
+.corgi-love-gif { width: 205px; max-width: 80%; box-shadow: 0 12px 30px rgba(244, 162, 97, 0.25); }
+.crying-gif { width: 185px; max-width: 80%; box-shadow: 0 10px 25px rgba(80, 115, 160, 0.18); }
+.zookiz-gif { width: 190px; max-width: 80%; box-shadow: 0 10px 25px rgba(110, 80, 150, 0.18); }
+
+/* ==================== TYPOGRAPHY & ANIMATIONS ==================== */
+h1 {
+  display: inline-block;
+  font-family: 'Caveat', cursive;
+  font-size: 3.1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  padding: 0 0.25em;
+  margin-bottom: 0.35rem;
+}
+
+/* Screen 1 Typography */
+.title-screen-1 {
+  background: linear-gradient(120deg, #2b1f3d 0%, #7c58a6 50%, #2b1f3d 100%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: dropBounceDown 0.85s 0.15s cubic-bezier(0.34, 1.56, 0.64, 1) both, shimmer 4s 1s ease-in-out infinite;
+}
+
+.sub-screen-1 {
+  animation: blurFadeIn 0.85s 0.35s ease-out both;
+}
+
+/* Screen 2 Typography */
+.title-screen-2 {
+  color: #3d1b28;
+  animation: flipDown3D 0.9s 0.2s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+.sub-screen-2 {
+  color: #6d4657;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: curtainReveal 0.95s 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Screen Sad Typography */
+.title-screen-sad {
+  color: #355882;
+  animation: tearShudder 0.95s 0.15s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.sub-screen-sad {
+  color: #4b6685;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  animation: weepWaveIn 0.9s 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Screen 3 Typography */
+.title-screen-3 {
+  color: #c84630;
+  animation: starburstZoom 0.9s 0.15s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.sub-screen-3 {
+  color: #7d443b;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.65;
+  font-size: 1.22rem;
+  animation: heartbeatFloat 0.95s 0.35s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+/* Screen Super Sad Typography */
+.title-screen-super-sad {
+  color: #4b2e6d;
+  animation: deepKneelSlam 0.95s 0.15s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.sub-screen-super-sad {
+  color: #553e72;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  animation: staggerTextFade 0.9s 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes deepKneelSlam {
+  0% { opacity: 0; transform: scale(1.35) translateY(-25px); }
+  55% { transform: scale(0.95) translateY(4px); }
+  75% { transform: scale(1.04) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes staggerTextFade {
+  0% { opacity: 0; transform: translateY(24px) scale(0.95); filter: blur(4px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+.apology-sub {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #5c4e74;
+  margin-bottom: 1.8rem;
+  letter-spacing: 0.3px;
+}
+
+.plead-emoji {
+  display: inline-block;
+  font-size: 1.4rem;
+  transform-origin: bottom center;
+  animation: pleadWobble 2.5s 1s ease-in-out infinite;
+}
+
+/* Keyframes: Screen 1 */
+@keyframes dropBounceDown {
+  0% { opacity: 0; transform: translateY(-40px) scale(0.92); }
+  65% { transform: translateY(6px) scale(1.03); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes blurFadeIn {
+  0% { opacity: 0; filter: blur(10px); transform: scale(0.94); }
+  100% { opacity: 1; filter: blur(0px); transform: scale(1); }
+}
+
+@keyframes springPopUp {
+  0% { opacity: 0; transform: translateY(42px) scale(0.85); }
+  70% { transform: translateY(-5px) scale(1.03); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Keyframes: Screen 2 */
+@keyframes flipDown3D {
+  0% { opacity: 0; transform: perspective(800px) rotateX(-80deg); transform-origin: top center; }
+  65% { transform: perspective(800px) rotateX(14deg); }
+  85% { transform: perspective(800px) rotateX(-4deg); }
+  100% { opacity: 1; transform: perspective(800px) rotateX(0deg); }
+}
+
+@keyframes curtainReveal {
+  0% { opacity: 0; clip-path: inset(0 50% 0 50%); transform: translateY(6px); }
+  100% { opacity: 1; clip-path: inset(0 0% 0 0%); transform: translateY(0); }
+}
+
+@keyframes unfoldElastic {
+  0% { opacity: 0; transform: scaleX(0.25) scaleY(1.3); }
+  60% { opacity: 1; transform: scaleX(1.1) scaleY(0.96); }
+  100% { opacity: 1; transform: scaleX(1) scaleY(1); }
+}
+
+/* Keyframes: Screen Sad */
+@keyframes tearShudder {
+  0% { opacity: 0; transform: translateY(-45px) scaleY(1.35) scaleX(0.78); }
+  50% { opacity: 1; transform: translateY(8px) scaleY(0.88) scaleX(1.12); }
+  70% { transform: translateY(-4px) rotate(-2deg); }
+  85% { transform: translateY(2px) rotate(2deg); }
+  100% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+}
+
+@keyframes weepWaveIn {
+  0% { opacity: 0; transform: translateX(-50px) skewX(10deg); }
+  70% { opacity: 1; transform: translateX(6px) skewX(-3deg); }
+  100% { opacity: 1; transform: translateX(0) skewX(0deg); }
+}
+
+@keyframes rippleSplash {
+  0% { opacity: 0; transform: scale(0.2) rotate(-8deg); }
+  60% { opacity: 1; transform: scale(1.15) rotate(3deg); }
+  80% { transform: scale(0.95) rotate(-1deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+/* Keyframes: Screen 3 */
+@keyframes starburstZoom {
+  0% { opacity: 0; transform: scale(0.18) rotate(-18deg); }
+  60% { opacity: 1; transform: scale(1.18) rotate(4deg); }
+  80% { transform: scale(0.96) rotate(-2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes heartbeatFloat {
+  0% { opacity: 0; transform: translateY(32px) scale(0.82); }
+  40% { opacity: 1; transform: translateY(0) scale(1.08); }
+  60% { transform: scale(0.96); }
+  80% { transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes corgiDropIn {
+  0% { opacity: 0; transform: translateY(-50px) scale(0.7) rotate(-5deg); }
+  65% { transform: translateY(6px) scale(1.05) rotate(2deg); }
+  100% { opacity: 1; transform: translateY(0) scale(1) rotate(0); }
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes pleadWobble {
+  0%, 100% { transform: rotate(0) scale(1); }
+  25% { transform: rotate(-12deg) scale(1.22); }
+  75% { transform: rotate(12deg) scale(1.22); }
+}
+
+/* ==================== BUTTONS ==================== */
+.btn-group {
+  display: flex;
+  gap: 0.9rem;
+  justify-content: center;
+}
+
+.btn-group-1 {
+  animation: springPopUp 0.85s 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.btn-group-2 {
+  animation: unfoldElastic 0.9s 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.btn-group-sad {
+  animation: rippleSplash 0.85s 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.btn-group-super {
+  animation: pleadWobbleBounce 0.9s 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.btn-group-3 {
+  animation: springPopUp 0.85s 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes pleadWobbleBounce {
+  0% { opacity: 0; transform: translateY(30px) scale(0.6); }
+  65% { transform: translateY(-6px) scale(1.06); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.btn {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 0.75rem 1.4rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.btn:active { transform: scale(0.95); }
+
+.btn-primary {
+  background: linear-gradient(135deg, #7c58a6, #5c3886);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(92, 56, 134, 0.3);
+  flex: 1;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(92, 56, 134, 0.45);
+}
+
+.btn-romantic {
+  background: linear-gradient(135deg, #e63963, #c9184a);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(230, 57, 99, 0.35);
+  flex: 1.2;
+}
+
+.btn-romantic:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(230, 57, 99, 0.45);
+}
+
+.btn-sad-forgive {
+  background: linear-gradient(135deg, #4a80b8, #305886);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(48, 88, 134, 0.35);
+  flex: 1.2;
+}
+
+.btn-sad-forgive:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(48, 88, 134, 0.45);
+}
+
+.btn-super-forgive {
+  background: linear-gradient(135deg, #7c4bb8, #5a2e96);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(90, 46, 150, 0.35);
+  flex: 1.3;
+}
+
+.btn-super-forgive:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(90, 46, 150, 0.45);
+}
+
+.btn-infinite {
+  background: linear-gradient(135deg, #ff4d6d 0%, #c9184a 50%, #ff758f 100%);
+  background-size: 200% auto;
+  color: #fff;
+  font-size: 0.98rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  box-shadow: 0 8px 24px rgba(230, 57, 99, 0.38);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  animation: pulseGlow 2.5s infinite alternate;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-infinite:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(230, 57, 99, 0.52);
+}
+
+.btn-infinite:active {
+  transform: scale(0.96);
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 8px 22px rgba(230, 57, 99, 0.35); }
+  100% { box-shadow: 0 12px 30px rgba(230, 57, 99, 0.55), 0 0 16px rgba(255, 117, 143, 0.35); }
+}
+
+.btn-secondary {
+  background: #ede8f5;
+  color: #4d3e63;
+  border: 1.5px solid #d4cce3;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-3px);
+  background: #e2dbed;
+  box-shadow: 0 8px 20px rgba(90, 70, 120, 0.12);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 900px) {
+  .cluster-left { left: 8%; }
+  .cluster-right { right: 8%; }
+  .branch { height: 180px; }
+  .sticker-top-left, .sticker-bottom-left { left: 8%; }
+  .sticker-top-right, .sticker-bottom-right { right: 8%; }
+  .balloon-left { left: 6%; }
+  .balloon-right { right: 6%; }
+  .cloud-left { left: 6%; }
+  .cloud-right { right: 6%; }
+  .super-sad-moon { right: 8%; }
+}
+
+@media (max-width: 540px) {
+  .foliage-cluster { opacity: 0.5; }
+  .cluster-left { left: -20px; }
+  .cluster-right { right: -20px; }
+  .branch { height: 130px; }
+  .sticker { font-size: 0.95rem; padding: 0.35rem 0.7rem; }
+  .sticker-top-left, .sticker-bottom-left { left: 4%; }
+  .sticker-top-right, .sticker-bottom-right { right: 4%; }
+  .screen2-corner { width: 110px; height: 110px; }
+  .balloon-cluster { width: 85px; height: 170px; opacity: 0.7; }
+  .balloon-left { left: -10px; }
+  .balloon-right { right: -10px; }
+  .celebration-bunting { height: 42px; }
+  .sad-cloud { width: 95px; height: 55px; opacity: 0.7; }
+  .cloud-left { left: 4px; }
+  .cloud-right { right: 4px; }
+  .super-sad-moon { width: 65px; height: 65px; right: 5%; }
+  .heart-frame { width: 280px; height: 255px; }
+  .pleading-gif, .corgi-gif, .corgi-love-gif, .crying-gif, .zookiz-gif { width: 145px; }
+  h1 { font-size: 2.4rem; }
+  .apology-sub { font-size: 1.08rem; margin-bottom: 1.4rem; }
+  .btn-group { flex-direction: column; width: 100%; }
+  .btn { width: 100%; }
+}
